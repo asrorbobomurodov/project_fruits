@@ -7,6 +7,16 @@ def get_total_price(data:str)->float:
     returns:
         float: fruits total price
     """
-    return
+    rows = data.split("\n")
+    total = 0
+    
+    for row in rows[1:-1]:
+        name, price = row.split(",")
+        total += float(price)
+        
+    return round(total, 2)
+
+data = open('fruits.csv').read()
+print(get_total_price(data))
 
     
